@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>you're in — the alignment cheat sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --espresso:#1A130F; --night:#140E0B; --oxblood:#601722; --oxlight:#8a2436;
+  --cream:#F3ECE1; --taupe:#AF998A; --pearl:#EFEBE3; --hair:#C4B2A6;
+  --gold:#D4B896;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--cream);
+  background:linear-gradient(180deg,#140E0B 0%,#1A130F 30%,#2a1418 70%,#601722 160%);
+  font-family:Inter,system-ui,sans-serif; line-height:1.6; min-height:100vh;
+  overflow-x:hidden;
+}
+#sky{position:fixed;inset:0;z-index:0;pointer-events:none}
+.wrap{max-width:840px;margin:0 auto;padding:32px 22px 90px;position:relative;z-index:1}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;letter-spacing:-.01em}
+.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+
+header{text-align:center;padding:44px 0 10px}
+header .moon{font-size:26px;letter-spacing:.5em;color:var(--gold);opacity:.9}
+header h1{font-size:clamp(38px,7.5vw,58px);margin:10px 0 6px;line-height:1.05;color:var(--cream);
+  text-shadow:0 0 40px rgba(212,184,150,.25)}
+header p{font-style:italic;color:var(--gold);margin:0;font-family:"DM Serif Display",serif;font-size:20px}
+.rule{height:1px;width:90px;margin:22px auto;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+/* steps nav */
+.steps{display:flex;justify-content:center;gap:8px;margin:26px 0 8px;flex-wrap:wrap}
+.step-pill{font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:8px 14px;
+  border:1px solid rgba(212,184,150,.35);border-radius:20px;color:var(--taupe)}
+.step-pill.on{background:var(--oxblood);border-color:var(--oxblood);color:var(--cream)}
+
+/* cards */
+.card{
+  background:rgba(243,236,225,.97); color:var(--espresso);
+  border-radius:6px; padding:30px 26px; margin:26px 0;
+  box-shadow:0 10px 50px rgba(0,0,0,.45), 0 0 0 1px rgba(212,184,150,.25);
+}
+.card .eyebrow{color:var(--oxblood)}
+.card h2{font-size:26px;margin:2px 0 12px;color:var(--espresso)}
+.muted{font-size:14px;color:#6b5a52}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--oxblood);font-weight:600;margin-bottom:5px}
+input,select,textarea{
+  width:100%;padding:11px 12px;border:1px solid var(--hair);border-radius:3px;
+  background:#fff;font-family:inherit;font-size:15px;color:var(--espresso)
+}
+textarea{min-height:74px;resize:vertical}
+.hint{font-size:12px;color:var(--taupe);margin-top:5px;font-style:italic}
+button.main{
+  width:100%;margin-top:24px;padding:17px;border:0;border-radius:3px;
+  background:var(--oxblood);color:var(--cream);font-family:"DM Serif Display",serif;
+  font-size:21px;cursor:pointer;box-shadow:0 6px 30px rgba(96,23,34,.5)
+}
+button.main:hover{background:var(--oxlight)}
+.err{background:var(--oxblood);color:var(--cream);padding:12px 14px;border-radius:3px;margin-top:16px;font-size:14px;display:none}
+
+/* how-to steps */
+.howto{counter-reset:hstep}
+.hstep{display:flex;gap:14px;margin:16px 0;align-items:flex-start}
+.hstep .n{
+  counter-increment:hstep;flex:0 0 30px;height:30px;border-radius:50%;
+  background:var(--oxblood);color:var(--cream);display:flex;align-items:center;justify-content:center;
+  font-family:"DM Serif Display",serif;font-size:15px
+}
+.hstep .n::before{content:counter(hstep)}
+.hstep .b{flex:1;font-size:15px}
+.hstep a{color:var(--oxblood);font-weight:600}
+details{margin:14px 0;border:1px solid var(--hair);border-radius:4px;background:#fff}
+details summary{cursor:pointer;padding:13px 16px;font-family:"DM Serif Display",serif;font-size:17px;color:var(--oxblood)}
+details .inner{padding:2px 18px 16px}
+
+/* reading */
+#reading{display:none}
+.snapshot{
+  background:linear-gradient(160deg,#1A130F,#2a1216);color:var(--cream);
+  padding:28px 26px;border-radius:6px;margin:26px 0;
+  box-shadow:0 10px 50px rgba(0,0,0,.5), inset 0 0 60px rgba(96,23,34,.35), 0 0 0 1px rgba(212,184,150,.3)
+}
+.snap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px 20px;margin-top:8px}
+.snap-item .k{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.snap-item .v{font-family:"DM Serif Display",serif;font-size:20px}
+section.block{
+  background:rgba(243,236,225,.97);color:var(--espresso);border-radius:6px;
+  padding:28px 26px;margin:20px 0;box-shadow:0 10px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(212,184,150,.22)
+}
+section.block h2{font-size:28px;margin:4px 0 12px;color:var(--espresso)}
+section.block .eyebrow{color:var(--oxblood)}
+.lead{font-style:italic;color:var(--oxblood);font-family:"DM Serif Display",serif;font-size:19px;margin:0 0 14px}
+.pull{background:#fff;border-left:3px solid var(--oxblood);padding:15px 17px;margin:16px 0;font-size:15px;border-radius:0 3px 3px 0}
+.pull .t{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--oxblood);font-weight:600;margin-bottom:6px}
+ul{padding-left:20px;margin:12px 0}
+li{margin-bottom:8px}
+.themes li{font-family:"DM Serif Display",serif;font-size:18px;color:var(--oxblood);font-style:italic}
+
+/* prompt box */
+.promptbox{
+  background:#171310;color:#e8ddcf;border-radius:5px;padding:18px;
+  font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.55;
+  white-space:pre-wrap;max-height:340px;overflow:auto;border:1px solid rgba(212,184,150,.3)
+}
+.copybtn{
+  margin-top:12px;width:100%;padding:14px;border:0;border-radius:3px;cursor:pointer;
+  background:var(--espresso);color:var(--gold);font-family:Inter,sans-serif;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600
+}
+.copybtn:hover{background:#000}
+
+.closer{text-align:center;padding:46px 20px 10px}
+.closer p{font-family:"DM Serif Display",serif;font-style:italic;font-size:24px;color:var(--gold);margin:0 0 6px}
+.closer .sig{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--taupe)}
+.printbtn{background:none;border:1px solid rgba(212,184,150,.4);color:var(--taupe);font-size:12px;letter-spacing:.16em;
+  text-transform:uppercase;font-family:Inter,sans-serif;padding:12px 22px;margin-top:26px;cursor:pointer;border-radius:3px}
+.printbtn:hover{color:var(--cream);border-color:var(--cream)}
+@media print{
+  body{background:#fff;color:#1A130F}
+  #sky,.card,.printbtn,.steps,header .moon{display:none}
+  .snapshot{background:#1A130F}
+  section.block{box-shadow:none;border:1px solid #ccc}
+}
+</style>
+
+<style>
+.bignum{display:flex;gap:18px;margin:22px 0;align-items:flex-start}
+.bignum .n{flex:0 0 46px;height:46px;border-radius:50%;background:var(--oxblood);color:var(--cream);
+  display:flex;align-items:center;justify-content:center;font-family:"DM Serif Display",serif;font-size:22px}
+.bignum .b{flex:1}
+.bignum h3{margin:6px 0 6px;font-size:21px;color:var(--espresso)}
+.bignum p{margin:0 0 8px;font-size:15px}
+.linkbtn{display:block;text-align:center;padding:16px;border-radius:3px;background:var(--oxblood);
+  color:var(--cream);text-decoration:none;font-family:"DM Serif Display",serif;font-size:19px;margin:12px 0}
+.linkbtn:hover{background:var(--oxlight)}
+.linkbtn.alt{background:var(--espresso)}
+.linkbtn small{display:block;font-family:Inter,sans-serif;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--taupe);margin-top:4px}
+.gift{border:1px solid var(--hair);border-radius:4px;padding:16px 18px;margin:12px 0;background:#fff}
+.gift .k{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--oxblood);font-weight:600;margin-bottom:5px}
+.gift .v{font-family:"DM Serif Display",serif;font-size:19px;color:var(--espresso);margin-bottom:4px}
+.gift p{margin:0;font-size:14px;color:#6b5a52}
+@media print{.linkbtn{border:1px solid #999;color:#1A130F !important;background:#fff !important}}
+</style>
+
+</head>
+<body>
+<canvas id="sky"></canvas>
+<div class="wrap">
+
+<header>
+  <div class="moon">&#10022; &#9790; &#10022;</div>
+  <div class="eyebrow" style="margin-top:14px">she already knew</div>
+  <h1>you're in.</h1>
+  <p>everything you need, in the order you need it</p>
+  <div class="rule"></div>
+</header>
+
+<div class="card">
+  <div class="eyebrow">what you just got</div>
+  <h2>three things</h2>
+  <div class="gift">
+    <div class="k">one</div>
+    <div class="v">your alignment reading + 28-day plan</div>
+    <p>The main one. Reads your chart and turns it into your content direction, your themes, your rhythm and a 28-day plan built on your own numbers.</p>
+  </div>
+  <div class="gift">
+    <div class="k">two</div>
+    <div class="v">who you actually are</div>
+    <p>The personal one. Same chart, no business, no strategy &mdash; just what you're like, how you're built, and what you're growing toward. Read this one for you.</p>
+  </div>
+  <div class="gift">
+    <div class="k">three</div>
+    <div class="v">your reading template <span style="font-size:13px;color:var(--taupe)">(word document)</span></div>
+    <p>Attached with this. It's the document the AI fills in for you in step 4. Download it now so it's ready.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">do it in this order</div>
+  <h2>start here</h2>
+
+  <div class="bignum"><div class="n">1</div><div class="b">
+    <h3>pull your chart</h3>
+    <p>Go to <a href="https://www.ihdschool.com/get-your-chart" target="_blank" rel="noopener">IHDS &mdash; free human design chart</a>. Under the <strong>NEWCOMERS</strong> tab click <strong>&ldquo;Free human design chart.&rdquo;</strong> Enter your birth date, exact time and city.</p>
+    <p>Write down two things: your <strong>TYPE</strong> and your <strong>AUTHORITY</strong>. That's it. Everything else on that page is a rabbit hole you don't need.</p>
+    <p class="muted"><em>Takes about three minutes. It's free. No card.</em></p>
+  </div></div>
+
+  <div class="bignum"><div class="n">2</div><div class="b">
+    <h3>open your alignment reading</h3>
+    <p>Enter your birth details and the type and authority you just wrote down. Add your business info &mdash; who you help, your 28-day goal, your platform.</p>
+    <a class="linkbtn" href="https://digitalbyalice11-jpg.github.io/shealreadyknew/alignment-reading.html" target="_blank" rel="noopener">open my alignment reading<small>your chart &rarr; your content plan</small></a>
+    <p>Your reading appears straight away. Read it before you go anywhere else.</p>
+  </div></div>
+
+  <div class="bignum"><div class="n">3</div><div class="b">
+    <h3>download your template</h3>
+    <p>The Word document attached with this page. Save it somewhere you can find it &mdash; you're about to attach it to an AI.</p>
+    <a class="linkbtn alt" href="https://digitalbyalice11-jpg.github.io/shealreadyknew/Your_Reading_TEMPLATE.docx">download the template<small>your_reading_template.docx</small></a>
+  </div></div>
+
+  <div class="bignum"><div class="n">4</div><div class="b">
+    <h3>get your full reading written</h3>
+    <p>At the bottom of your alignment reading there's a <strong>prompt</strong>. Copy it. Then:</p>
+    <p>&rarr; Open <strong>Claude</strong> or <strong>ChatGPT</strong><br>
+       &rarr; <strong>Attach the template</strong> you just downloaded<br>
+       &rarr; <strong>Paste the prompt</strong> and send</p>
+    <p>It fills the whole template in for you &mdash; your themes with post ideas, your unfair advantages, your watch-outs, the math on your goal, your three phases, your weekly rhythm and your mantra.</p>
+    <p><strong>Save that document.</strong> That's what you work from for the next 28 days.</p>
+  </div></div>
+
+  <div class="bignum"><div class="n">5</div><div class="b">
+    <h3>then, whenever you want &mdash; the personal one</h3>
+    <p>This one has nothing to do with business. It's just about you: how your energy works, how you're built to decide, what you're growing toward, and what you quietly need to keep going.</p>
+    <a class="linkbtn alt" href="https://digitalbyalice11-jpg.github.io/shealreadyknew/who-you-are.html" target="_blank" rel="noopener">read who i actually am<small>no strategy. just you.</small></a>
+  </div></div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">two things worth knowing</div>
+  <h2>before you start</h2>
+  <p><strong>Your exact birth time matters.</strong> An hour off can change your rising sign and your profile. It's usually on your birth certificate. Worth the five minutes it takes to find.</p>
+  <p><strong>Don't know your birth time?</strong> Tick the box that says so. You'll still get your sun, your nodes and your whole content direction &mdash; the parts that matter most here. The pieces that genuinely need a time get left out rather than guessed at, because a confident wrong answer is worse than a blank.</p>
+  <p style="margin-bottom:0"><strong>Bookmark both links.</strong> You can run them as many times as you like &mdash; when your offer changes, when your goal changes, or for a friend.</p>
+</div>
+
+<div class="closer">
+  <p>she already knew.</p>
+  <p style="font-size:16px;color:var(--taupe);font-style:normal;font-family:Inter,sans-serif">now you do too.</p>
+  <div style="height:18px"></div>
+  <div class="sig">@shealreadyknew_</div><br>
+  <button class="printbtn" onclick="window.print()">save these instructions as pdf</button>
+</div>
+</div>
+<script>
+/* ---------- starfield ---------- */
+(function(){
+  const c=document.getElementById('sky'), x=c.getContext('2d');
+  let stars=[];
+  function size(){
+    c.width=innerWidth; c.height=innerHeight;
+    stars=Array.from({length:Math.min(170,innerWidth/6)},()=>({
+      x:Math.random()*c.width, y:Math.random()*c.height,
+      r:Math.random()*1.4+.3, p:Math.random()*Math.PI*2, s:.008+Math.random()*.02
+    }));
+  }
+  size(); addEventListener('resize',size);
+  (function tick(){
+    x.clearRect(0,0,c.width,c.height);
+    for(const st of stars){
+      st.p+=st.s;
+      const a=.25+.55*Math.abs(Math.sin(st.p));
+      x.beginPath(); x.arc(st.x,st.y,st.r,0,7);
+      x.fillStyle=`rgba(212,184,150,${a})`; x.fill();
+      if(st.r>1.1){
+        x.strokeStyle=`rgba(212,184,150,${a*.35})`; x.lineWidth=.5;
+        x.beginPath();
+        x.moveTo(st.x-st.r*3,st.y); x.lineTo(st.x+st.r*3,st.y);
+        x.moveTo(st.x,st.y-st.r*3); x.lineTo(st.x,st.y+st.r*3);
+        x.stroke();
+      }
+    }
+    requestAnimationFrame(tick);
+  })();
+})();
+
+
+</script>
+</body>
+</html>
